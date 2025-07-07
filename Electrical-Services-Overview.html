@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GG Electrical Solutions</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#1a237e', secondary: '#2e7d32' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-up {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scale-up.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #2e7d32;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(46, 125, 50, 0.15);
+            border-color: #2e7d32;
+        }
+
+        .service-icon {
+            transition: background-color 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background-color: #2e7d32;
+            color: white;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #2e7d32;
+            box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+        }
+
+        /* Custom checkbox */
+        .custom-checkbox {
+            position: relative;
+            padding-left: 35px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .custom-checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+            border: 2px solid #1a237e;
+            border-radius: 4px;
+        }
+
+        .custom-checkbox:hover input~.checkmark {
+            border-color: #2e7d32;
+        }
+
+        .custom-checkbox input:checked~.checkmark {
+            background-color: #2e7d32;
+            border-color: #2e7d32;
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .custom-checkbox input:checked~.checkmark:after {
+            display: block;
+        }
+
+        .custom-checkbox .checkmark:after {
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-primary shadow-md">
+        <div class="container mx-auto px-6 py-3 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3">
+                <div class="w-10 h-10 flex items-center justify-center bg-white rounded-full">
+                    <span class="text-primary font-['Pacifico'] text-xl">logo</span>
+                </div>
+                <span class="text-white text-xl font-bold">GG</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="/Electrical-Services-Overview.html"
+                    class="nav-link text-white hover:text-gray-200 transition">Home</a>
+                <a href="/About-Us.html" class="nav-link text-white hover:text-gray-200 transition">About Us</a>
+                <a href="/Services1.html" class="nav-link text-white hover:text-gray-200 transition">Services</a>
+                <a href="#contact"
+                    class="bg-secondary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition whitespace-nowrap">Contact
+                    Us</a>
+            </div>
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-white w-10 h-10 flex items-center justify-center">
+                    <i class="ri-menu-line ri-lg"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-primary">
+            <div class="container mx-auto px-6 py-3 flex flex-col space-y-4">
+                <a href="/Electrical-Services-Overview.html"
+                    class="text-white hover:text-gray-200 py-2 transition">Home</a>
+                <a href="/About-Us.html" class="text-white hover:text-gray-200 py-2 transition">About Us</a>
+                <a href="/Services1.html" class="text-white hover:text-gray-200 py-2 transition">Services</a>
+                <a href="#contact"
+                    class="bg-secondary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition text-center whitespace-nowrap">Contact
+                    Us</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="w-full pt-24 relative">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('photos/electrical-wires.jpg');">
+        </div>
+        <div class="absolute inset-0 bg-primary bg-opacity-70"></div>
+        <div class="container mx-auto px-6 py-20 md:py-32 relative z-10">
+            <div class="max-w-3xl hero-content">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">Professional
+                    Testing & Tagging Solutions</h1>
+                <p class="text-xl text-gray-100 mb-8">Experience hassle-free on-site inspection and certification of
+                    your electrical devices with GG Testing & Tagging.</p>
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8">
+                    <a href="#contact"
+                        class="bg-secondary text-white px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition text-lg whitespace-nowrap">Get
+                        a Quote</a>
+                    <div class="flex items-center text-white">
+                        <div> </div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-4">
+                <div class="flex items-center bg-white bg-opacity-20 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <div class="w-8 h-8 flex items-center justify-center text-secondary mr-2">
+                        <i class="ri-shield-check-fill ri-lg"></i>
+                    </div>
+                    <span class="text-white">Licensed & Insured</span>
+                </div>
+                <div>
+                </div>
+                <div class="flex items-center bg-white bg-opacity-20 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <div class="w-8 h-8 flex items-center justify-center text-secondary mr-2">
+                        <i class="ri-star-fill ri-lg" style="margin-right: 0px;"></i>
+                    </div>
+                    <span class="text-white" style="margin-left: 0px;">5-Star Rated</span>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- Services Section 
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Electrical Services</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Comprehensive electrical solutions tailored to your
+                    specific needs, delivered by certified professionals with years of experience.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                Service 1 
+                <div class="service-card border border-gray-200 rounded-lg p-6 bg-white">
+                    <div
+                        class="service-icon w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+                        <i class="ri-home-fill ri-2x text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Residential Electrical</h3>
+                    <p class="text-gray-600 mb-4">Complete home electrical services including wiring, panel upgrades,
+                        lighting installation, and troubleshooting for all residential properties.</p>
+                    <a href="/Services1.html"
+                        class="inline-flex items-center text-primary font-medium hover:text-secondary transition">
+                        Learn More
+                        <i class="ri-arrow-right-line ri-lg ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card border border-gray-200 rounded-lg p-6 bg-white">
+                    <div
+                        class="service-icon w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+                        <i class="ri-building-fill ri-2x text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Commercial Solutions</h3>
+                    <p class="text-gray-600 mb-4">Specialized electrical services for businesses, including office
+                        buildings, retail spaces, and industrial facilities with minimal disruption.</p>
+                    <a href="#"
+                        class="inline-flex items-center text-primary font-medium hover:text-secondary transition">
+                        Learn More
+                        <i class="ri-arrow-right-line ri-lg ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card border border-gray-200 rounded-lg p-6 bg-white">
+                    <div
+                        class="service-icon w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+                        <i class="ri-alarm-warning-fill ri-2x text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Emergency Services</h3>
+                    <p class="text-gray-600 mb-4">24/7 emergency electrical services for unexpected issues, power
+                        outages, and urgent electrical problems requiring immediate attention.</p>
+                    <a href="#"
+                        class="inline-flex items-center text-primary font-medium hover:text-secondary transition">
+                        Learn More
+                        <i class="ri-arrow-right-line ri-lg ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card border border-gray-200 rounded-lg p-6 bg-white">
+                    <div
+                        class="service-icon w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+                        <i class="ri-tools-fill ri-2x text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Maintenance</h3>
+                    <p class="text-gray-600 mb-4">Regular electrical system maintenance to prevent failures, extend
+                        equipment lifespan, and ensure optimal performance and safety.</p>
+                    <a href="#"
+                        class="inline-flex items-center text-primary font-medium hover:text-secondary transition">
+                        Learn More
+                        <i class="ri-arrow-right-line ri-lg ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card border border-gray-200 rounded-lg p-6 bg-white">
+                    <div
+                        class="service-icon w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+                        <i class="ri-install-fill ri-2x text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Installation</h3>
+                    <p class="text-gray-600 mb-4">Professional installation of electrical systems, lighting fixtures,
+                        generators, EV charging stations, and smart home technology.</p>
+                    <a href="#"
+                        class="inline-flex items-center text-primary font-medium hover:text-secondary transition">
+                        Learn More
+                        <i class="ri-arrow-right-line ri-lg ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card border border-gray-200 rounded-lg p-6 bg-white">
+                    <div
+                        class="service-icon w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+                        <i class="ri-hammer-fill ri-2x text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Testing and Tagging</h3>
+                    <p class="text-gray-600 mb-4">Testing and tagging is a safety procedure used to ensure electrical appliances are functioning correctly and are safe to use by testing their electrical performance and attaching a tag that indicates their status.</p>
+                    <a href="#"
+                        class="inline-flex items-center text-primary font-medium hover:text-secondary transition">
+                        Learn More
+                        <i class="ri-arrow-right-line ri-lg ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    Why Choose Us Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <div class="absolute -top-4 -left-4 w-24 h-24 bg-secondary opacity-10 rounded-lg"></div>
+                        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-primary opacity-10 rounded-lg"></div>
+                        <img src="/photos/testing.jpg " alt="Professional Electricians"
+                            class="rounded-lg shadow-xl relative z-10 w-full object-cover h-[500px] object-top">
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose GG Electrical?</h2>
+                    <div class="space-y-6">
+                        <div class="flex why-choose-feature fade-up">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-secondary rounded-full mr-4">
+                                <i class="ri-user-star-fill ri-lg text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Experienced Professionals</h3>
+                                <p class="text-gray-600">Our team consists of licensed electricians with over 15 years
+                                    of experience in residential and commercial electrical services.</p>
+                            </div>
+                        </div>
+                        <div class="flex fade-up">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-secondary rounded-full mr-4">
+                                <i class="ri-time-fill ri-lg text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Prompt & Reliable Service</h3>
+                                <p class="text-gray-600">We understand the importance of timely service. Our team
+                                    arrives on schedule and completes projects within the agreed timeframe.</p>
+                            </div>
+                        </div>
+                        <div class="flex fade-up">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-secondary rounded-full mr-4">
+                                <i class="ri-price-tag-3-fill ri-lg text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Transparent Pricing</h3>
+                                <p class="text-gray-600">No hidden fees or surprise charges. We provide detailed quotes
+                                    before starting any work, ensuring complete transparency.</p>
+                            </div>
+                        </div>
+                        <div class="flex fade-up">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-secondary rounded-full mr-4">
+                                <i class="ri-customer-service-2-fill ri-lg text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Exceptional Customer Service</h3>
+                                <p class="text-gray-600">Our commitment to customer satisfaction is reflected in our
+                                    4.9/5 rating from over 500 satisfied clients in the community.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <a href="#contact"
+                            class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition text-lg inline-block whitespace-nowrap">Contact
+                            us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Hear from our satisfied customers about their
+                    experience with GG Electrical services.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 rounded-lg p-6 shadow-sm testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="text-secondary">
+                            <i class="ri-star-fill ri-lg"></i>
+                            <i class="ri-star-fill ri-lg"></i>
+                            <i class="ri-star-fill ri-lg"></i>
+                            <i class="ri-star-fill ri-lg"></i>
+                            <i class="ri-star-fill ri-lg"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"GG Electrical provided exceptional service when upgrading our home's
+                        electrical panel. The team was professional, knowledgeable, and completed the job ahead of
+                        schedule. I highly recommend their services!"</p>
+                    <div class="flex items-center">
+                        <div
+                            class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            RB</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Robert Bennett</h4>
+                            <p class="text-gray-600 text-sm">Residential Client</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 rounded-lg p-6 shadow-sm testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="text-secondary">
+                            <i class="ri-star-fill ri-lg"></i>
+                            <i class="ri-star-fill ri-lg"></i>
+                            <i class="ri-star-fill ri-lg"></i>
+                            <i class="ri-star-fill ri-lg"></i>
+                            <i class="ri-star-fill ri-lg"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"As a business owner, I needed reliable electrical work done with
+                        minimal disruption to our operations. GG delivered exactly that. Their team worked efficiently
+                        after hours and ensured everything was up to code. Fantastic service!"</p>
+                    <div class="flex items-center">
+                        <div
+                            class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            JM</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Jennifer Martinez</h4>
+                            <p class="text-gray-600 text-sm">Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 rounded-lg p-6 shadow-sm testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="text-secondary">
+                            <i class="ri-star-fill ri-lg"></i>
+                            <i class="ri-star-fill ri-lg"></i>
+                            <i class="ri-star-fill ri-lg"></i>
+                            <i class="ri-star-fill ri-lg"></i>
+                            <i class="ri-star-fill ri-lg"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"We had an electrical emergency late at night, and GG responded within
+                        30 minutes. The electrician quickly identified and fixed the issue, preventing what could have
+                        been a dangerous situation. Their 24/7 service is truly reliable!"</p>
+                    <div class="flex items-center">
+                        <div
+                            class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            DW</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">David Wilson</h4>
+                            <p class="text-gray-600 text-sm">Homeowner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Reach out to us for a free consultation or to
+                    schedule an appointment with our electrical experts.</p>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form action="send-contact.php" method="POST" class="bg-white rounded-lg shadow-sm p-8"
+                        id="contact-form">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Full Name *</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded focus:border-secondary focus:outline-none"
+                                placeholder="Your name">
+                            <div id="name-error" class="text-red-500 text-sm mt-1" style="display: none;"></div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email Address *</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded focus:border-secondary focus:outline-none"
+                                placeholder="Your email">
+                            <div id="email-error" class="text-red-500 text-sm mt-1" style="display: none;"></div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone"
+                                class="w-full px-4 py-3 border border-gray-300 rounded focus:border-secondary focus:outline-none"
+                                placeholder="Your phone number">
+                        </div>
+                        <div class="mb-6">
+                            <!-- <label for="service" class="block text-gray-700 font-medium mb-2">Service Needed</label>
+        <div class="relative">
+            <select id="service" name="service"
+                class="w-full px-4 py-3 border border-gray-300 rounded appearance-none focus:border-secondary pr-8">
+                <option value="" disabled selected>Select a service</option>
+                <option value="residential">Residential Electrical</option>
+                <option value="commercial">Commercial Solutions</option>
+                <option value="emergency">Emergency Services</option>
+                <option value="maintenance">Maintenance</option>
+                <option value="installation">Installation</option>
+                <option value="testing_and_tagging">Testing and Tagging</option>
+            </select>
+            <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                <i class="ri-arrow-down-s-line ri-lg text-gray-500"></i>
+            </div>
+        </div> -->
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message *</label>
+                            <textarea id="message" name="message" rows="4" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded focus:border-secondary focus:outline-none"
+                                placeholder="Tell us about your electrical needs"></textarea>
+                            <div id="message-error" class="text-red-500 text-sm mt-1" style="display: none;"></div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="consent" required>
+                                <span class="checkmark"></span>
+                                <span class="text-gray-700">I agree to receive communications from GG Electrical
+                                    *</span>
+                            </label>
+                            <div id="consent-error" class="text-red-500 text-sm mt-1" style="display: none;"></div>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-opacity-90 transition whitespace-nowrap">
+                            <span id="submit-text">Submit Request</span>
+                            <span id="submit-loading" style="display: none;">Sending...</span>
+                        </button>
+                    </form>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Our Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                    <i class="ri-phone-fill ri-lg text-secondary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Phone</h4>
+                                    <p class="text-gray-600">+61 433 866 375</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                    <i class="ri-mail-fill ri-lg text-secondary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Email</h4>
+                                    <p class="text-gray-600">info@ggelectrical.com</p>
+                                    <p class="text-gray-600">service@ggelectrical.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4">
+                                    <i class="ri-time-fill ri-lg text-secondary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Business Hours</h4>
+                                    <p class="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                    <p class="text-gray-600">Saturday: 9:00 AM - 4:00 PM</p>
+                                    <p class="text-gray-600">Sunday: Closed (Emergency Services Available)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden h-[300px]">
+                        <div class="h-full w-full bg-cover bg-center" style="background-image: url('/photos/map.png');">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-primary text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 flex items-center justify-center bg-white rounded-full">
+                            <span class="text-primary font-['Pacifico'] text-xl">logo</span>
+                        </div>
+                        <span class="text-white text-xl font-bold">GG</span>
+                    </div>
+                    <p class="text-gray-300 mb-6">Experience hassle-free on-site inspection and certification of your
+                        electrical devices with GG Testing & Tagging.</p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-10 rounded-full hover:bg-secondary transition">
+                            <i class="ri-facebook-fill ri-lg text-white"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-10 rounded-full hover:bg-secondary transition">
+                            <i class="ri-twitter-fill ri-lg text-white"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-10 rounded-full hover:bg-secondary transition">
+                            <i class="ri-instagram-fill ri-lg text-white"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-10 rounded-full hover:bg-secondary transition">
+                            <i class="ri-linkedin-fill ri-lg text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Home</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Services</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Projects</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Testimonials</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Service Areas</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Perth Metro</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Subiaco</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Myaree</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Attadale</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Bicton</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Mosman Park</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Peppermint Grove</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Cottesloe</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6 invisible">Service Areas</h3> <!-- Keeps alignment -->
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Claremont</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Dalkeith</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Nedlands</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Daglish</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Floreat</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">City Beach</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">Double View</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2025 GG Testing and Tagging. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script id="mobile-menu-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+                // Toggle icon between menu and close
+                const icon = mobileMenuButton.querySelector('i');
+                if (icon.classList.contains('ri-menu-line')) {
+                    icon.classList.remove('ri-menu-line');
+                    icon.classList.add('ri-close-line');
+                } else {
+                    icon.classList.remove('ri-close-line');
+                    icon.classList.add('ri-menu-line');
+                }
+            });
+        });
+    </script>
+    <script id="smooth-scroll-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                            const icon = document.querySelector('#mobile-menu-button i');
+                            icon.classList.remove('ri-close-line');
+                            icon.classList.add('ri-menu-line');
+                        }
+                        // Scroll to element
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80, // Adjust for fixed header
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    <script id="scroll-animation-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            const animateElements = () => {
+                const heroContent = document.querySelector('.hero-content');
+                if (heroContent) heroContent.classList.add('fade-up');
+                document.querySelectorAll('.fade-up, .service-card, .why-choose-feature, .testimonial-card, form, .contact-info').forEach((element) => {
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(30px)';
+                    element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                });
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const element = entry.target;
+                            const delay = element.dataset.delay || 0;
+                            setTimeout(() => {
+                                element.style.opacity = '1';
+                                element.style.transform = 'translateY(0)';
+                            }, delay);
+                        }
+                    });
+                }, {
+                    threshold: 0.15,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+                document.querySelectorAll('.service-card').forEach((card, index) => {
+                    card.dataset.delay = index * 100;
+                    observer.observe(card);
+                });
+                document.querySelectorAll('.why-choose-feature').forEach((feature, index) => {
+                    feature.dataset.delay = index * 100;
+                    observer.observe(feature);
+                });
+                document.querySelectorAll('.testimonial-card').forEach((card, index) => {
+                    card.dataset.delay = index * 100;
+                    observer.observe(card);
+                });
+                document.querySelectorAll('.fade-up').forEach((element, index) => {
+                    element.dataset.delay = index * 60;
+                    observer.observe(element);
+                });
+                document.querySelectorAll('form, .contact-info').forEach((element) => {
+                    observer.observe(element);
+                });
+            };
+            animateElements();
+        });
+    </script>
+</body>
+
+</html>
