@@ -84,6 +84,10 @@
         .timeline-item:last-child::after {
             display: none;
         }
+
+        .logo{
+            height: 60px;
+        }
     </style>
 </head>
 
@@ -91,16 +95,16 @@
     <!-- Navigation Bar -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-primary shadow-md">
         <div class="container mx-auto px-6 py-3 flex items-center justify-between">
-            <a href="index.html" class="flex items-center space-x-3">
-                <div class="w-10 h-10 flex items-center justify-center bg-white rounded-full">
-                    <span class="text-primary font-['Pacifico'] text-xl">logo</span>
+            <a href="#" class="flex items-center space-x-3">
+                <div class=" flex items-center justify-center bg-green-100">
+                    <img class=logo src="/photos/GGLOGO2.jpg" alt="LOGO">
                 </div>
-                <span class="text-white text-xl font-bold">GG</span>
             </a>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="/index.html" class="nav-link text-white hover:text-gray-200 transition">Home</a>
-                <a href="/about-us.html" class="nav-link text-white hover:text-gray-200 transition font-medium">About Us</a>
-                <!--<a href="/Services1.html" class="nav-link text-white hover:text-gray-200 transition">Services</a> -->
+                <a href="/index.html"
+                    class="nav-link text-white hover:text-gray-200 transition">Home</a>
+                <a href="/about-us.html" class="nav-link text-white hover:text-gray-200 transition">About Us</a>
+                <!-- <a href="/Services1.html" class="nav-link text-white hover:text-gray-200 transition">Services</a> -->
                 <a href="/index.html#contact"
                     class="bg-secondary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition whitespace-nowrap">Contact
                     Us</a>
@@ -115,9 +119,9 @@
         <div id="mobile-menu" class="md:hidden hidden bg-primary">
             <div class="container mx-auto px-6 py-3 flex flex-col space-y-4">
                 <a href="index.html" class="text-white hover:text-gray-200 py-2 transition">Home</a>
-                <a href="about.html" class="text-white hover:text-gray-200 py-2 transition font-medium">About Us</a>
-                <a href="services.html" class="text-white hover:text-gray-200 py-2 transition">Services</a>
-                <a href="contact.html"
+                <a href="about-us.html" class="text-white hover:text-gray-200 py-2 transition font-medium">About Us</a>
+                <!-- <a href="services.html" class="text-white hover:text-gray-200 py-2 transition">Services</a> -->
+                <a href="index.html#contact"
                     class="bg-secondary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition text-center whitespace-nowrap">Contact
                     Us</a>
             </div>
@@ -518,10 +522,9 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-10 h-10 flex items-center justify-center bg-white rounded-full">
-                            <span class="text-primary font-['Pacifico'] text-xl">logo</span>
-                        </div>
-                        <span class="text-white text-xl font-bold">GG</span>
+                        <div class=" flex items-center justify-center bg-green-100">
+                    <img class=logo src="/photos/GGLOGO2.jpg" alt="LOGO">
+                </div>
                     </div>
                     <p class="text-gray-300 mb-6">Professional electrical services for residential and commercial
                         clients. Licensed, insured, and committed to safety and quality.</p>
