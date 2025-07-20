@@ -369,8 +369,8 @@
                             class="rounded-lg shadow-xl relative z-10 w-full object-cover h-[500px] object-top">
                     </div>
                 </div>
-                <div class="lg:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose GG Electrical?</h2>
+                <div class="lg:w-1/2 ">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" >Why Choose GG Electrical?</h2>
                     <div class="space-y-6">
                         <div class="flex why-choose-feature fade-up">
                             <div
@@ -417,7 +417,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mt-8">
+                    <div class="mt-8 fade-up">
                         <a href="#contact"
                             class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition text-lg inline-block whitespace-nowrap">Contact
                             us</a>
@@ -429,7 +429,7 @@
     <!-- Testimonials Section -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">Hear from our satisfied customers about their
                     experience with GG Electrical services.</p>
@@ -494,9 +494,7 @@
                             <i class="ri-star-fill ri-lg"></i>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-6">"We had an electrical emergency late at night, and GG responded within
-                        30 minutes. The electrician quickly identified and fixed the issue, preventing what could have
-                        been a dangerous situation. Their 24/7 service is truly reliable!"</p>
+                    <p class="text-gray-700 mb-6">GG Electrical did an outstanding job rewiring our home. The team was professional, efficient, and left everything spotless. We felt confident in their work from start to finish, and everything now runs perfectly.</p>
                     <div class="flex items-center">
                         <div
                             class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4">
@@ -513,13 +511,13 @@
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">Reach out to us for a free consultation or to
                     schedule an appointment with our electrical experts.</p>
             </div>
             <div class="flex flex-col lg:flex-row gap-12">
-                <div class="lg:w-1/2">
+                <div class="lg:w-1/2 fade-up">
                     <form action="https://usebasin.com/f/fabbc80c18f8" method="POST" class="bg-white rounded-lg shadow-sm p-8"
                         id="contact-form">
                         <div class="mb-6">
@@ -555,7 +553,7 @@
                         </button>
                     </form>
                 </div>
-                <div class="lg:w-1/2">
+                <div class="lg:w-1/2 fade-up">
                     <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
                         <h3 class="text-2xl font-bold text-gray-900 mb-6">Our Information</h3>
                         <div class="space-y-6">
@@ -636,7 +634,7 @@
                     <h3 class="text-xl font-bold mb-6">Quick Links</h3>
                     <ul class="space-y-3">
                         <li><a href="index.html" class="text-gray-300 hover:text-secondary transition">Home</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-secondary transition">About Us</a></li>
+                        <li><a href="about-us.html" class="text-gray-300 hover:text-secondary transition">About Us</a></li>
                         <!-- <li><a href="services.html" class="text-gray-300 hover:text-secondary transition">Services</a></li>
                         <li><a href="contact.html" class="text-gray-300 hover:text-secondary transition">Contact</a></li> -->
                     </ul>
@@ -667,25 +665,6 @@
             </div>
         </div>
     </footer>
-
-    <script id="mobile-menu-script">
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', function () {
-                mobileMenu.classList.toggle('hidden');
-                // Toggle icon between menu and close
-                const icon = mobileMenuButton.querySelector('i');
-                if (icon.classList.contains('ri-menu-line')) {
-                    icon.classList.remove('ri-menu-line');
-                    icon.classList.add('ri-close-line');
-                } else {
-                    icon.classList.remove('ri-close-line');
-                    icon.classList.add('ri-menu-line');
-                }
-            });
-        });
-    </script>
     <script id="smooth-scroll-script">
         document.addEventListener('DOMContentLoaded', function () {
             // Smooth scrolling for anchor links
@@ -763,22 +742,23 @@
         });
     </script>
     <script>
-document.addEventListener('DOMContentLoaded', function () {
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuButton.addEventListener('click', function () {
-        mobileMenu.classList.toggle('hidden');
-        // Toggle icon between menu and close
-        const icon = mobileMenuButton.querySelector('i');
-        if (icon.classList.contains('ri-menu-line')) {
-            icon.classList.remove('ri-menu-line');
-            icon.classList.add('ri-close-line');
-        } else {
-            icon.classList.remove('ri-close-line');
-            icon.classList.add('ri-menu-line');
-        }
-    });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuButton.querySelector('i');
+                if (icon.classList.contains('ri-menu-line')) {
+                    icon.classList.remove('ri-menu-line');
+                    icon.classList.add('ri-close-line');
+                } else {
+                    icon.classList.remove('ri-close-line');
+                    icon.classList.add('ri-menu-line');
+                }
+                    });
+                });
 
     // AJAX Contact Form Submission
     const form = document.getElementById('contact-form');
@@ -843,8 +823,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
-});
 </script>
 </body>
-
 </html>
