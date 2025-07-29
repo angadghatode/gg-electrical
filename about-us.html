@@ -17,6 +17,8 @@
      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17306423437"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-17306423437'); 
      </script>   
 
+     <!-- Event snippet for Click to call conversion page In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. --> <script> function gtag_report_conversion(url) { var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } }; gtag('event', 'conversion', { 'send_to': 'AW-17306423437/0nTzCPOekPsaEI2hrLxA', 'value': 1.0, 'currency': 'AUD', 'event_callback': callback }); return false; } </script>
+
     <style>
         :where([class^="ri-"])::before {
             content: "\f3c2";
@@ -509,13 +511,13 @@
             <p class="text-xl text-gray-100 mb-8 max-w-3xl mx-auto">Experience the GG Electrical difference. Contact us today for reliable, professional electrical services.</p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="/index.html#contact" class="bg-secondary text-white px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition text-lg whitespace-nowrap">Get Your Quote</a>
-                <a href="tel:(08) 62880545" class="flex items-center text-white hover:text-gray-200 transition">
+                <a onclick="return gtag_report_conversion('tel:(08) 6288 0545');" href="tel:(08) 6288 0545" class="flex items-center text-white hover:text-gray-200 transition">
                     <div class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full mr-3">
                         <i class="ri-phone-fill ri-lg"></i>
                     </div>
                     <div class="text-left">
                         <p class="text-sm text-gray-200">Call Now</p>
-                        <p class="text-xl font-bold">(08) 62880545</p>
+                        <p class="text-xl font-bold">(08) 6288 0545</p>
                     </div>
                 </a>
             </div>
