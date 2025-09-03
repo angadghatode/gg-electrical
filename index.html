@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--  
+- drop down menu, for service plan. 
+-->
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -213,7 +217,7 @@
         <div class="container mx-auto px-6 py-3 flex items-center justify-between">
             <a href="#" class="flex items-center space-x-3">
                 <div class=" flex items-center justify-center bg-green-100">
-                    <img class=logo src="/photos/GGLOGO2.jpg" alt="LOGO">
+                    <img class=logo src="photos/GGT&TLOGO2.jpeg" alt="LOGO">
                 </div>
             </a>
             <div class="hidden md:flex items-center space-x-8">
@@ -252,8 +256,11 @@
             <div class="max-w-3xl hero-content">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">Professional
                     Testing & Tagging Solutions</h1>
-                <p class="text-xl text-gray-100 mb-8">Experience hassle-free on-site inspection and certification of
-                    your electrical devices with GG Testing & Tagging.</p>
+                <p class="text-xl text-gray-100 mb-8" style="margin-bottom: 10px;">Experience hassle-free on-site inspection and certification of your electrical devices with GG Testing & Tagging.</p>
+                   <p class="text-xl text-gray-100 mb-8" style="margin-bottom: 5px;">•⁠ All work done after hours - Hassle free</p>  
+                   <p class="text-xl text-gray-100 mb-8" style="margin-bottom: 5px;">•⁠ Free quotes</p>  
+                   <p class="text-xl text-gray-100 mb-8" style="margin-bottom: 5px;">•⁠ ⁠Full online compliance reporting </p>  
+                   <p class="text-xl text-gray-100 mb-8">•⁠ ⁠Service plans to automate electrical safety</p>  
                 <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8">
                     <a href="#contact"
                         class="bg-secondary text-white px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition text-lg whitespace-nowrap">Get
@@ -406,12 +413,12 @@
                     <div class="relative">
                         <div class="absolute -top-4 -left-4 w-24 h-24 bg-secondary opacity-10 rounded-lg"></div>
                         <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-primary opacity-10 rounded-lg"></div>
-                        <img src="/photos/testing.jpg " alt="Professional Electricians"
+                        <img src="photos/imageONEINDEX.jpeg" alt="Testing and Tagging Photo"
                             class="rounded-lg shadow-xl relative z-10 w-full object-cover h-[500px] object-top">
                     </div>
                 </div>
                 <div class="lg:w-1/2 ">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose GG Electrical?</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose GG Tagging & Testing?</h2>
                     <div class="space-y-6">
                         <div class="flex why-choose-feature fade-up">
                             <div
@@ -421,7 +428,7 @@
                             <div>
                                 <h3 class="text-xl font-bold text-gray-900 mb-2">Experienced Professionals</h3>
                                 <p class="text-gray-600">Our team consists of licensed electricians with over 6 years
-                                    of experience in residential and commercial electrical services.</p>
+                                    of experience in residential and commercial Testing & Tagging services.</p>
                             </div>
                         </div>
                         <div class="flex fade-up">
@@ -487,7 +494,7 @@
                             <i class="ri-star-fill ri-lg"></i>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-6">"GG Electrical provided exceptional service when carrying out testing
+                    <p class="text-gray-700 mb-6">"GG Testing & Tagging provided exceptional service when carrying out testing
                         and tagging at our property. The team was thorough, professional, and ensured everything met
                         safety standards. I highly recommend their services!"</p>
                     <div class="flex items-center">
@@ -535,7 +542,7 @@
                             <i class="ri-star-fill ri-lg"></i>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-6">"GG Electrical did an outstanding job with the testing and tagging at
+                    <p class="text-gray-700 mb-6">"GG Testing & Tagging did an outstanding job with the testing and tagging at
                         our premises. The team was professional, efficient, and left everything organised. We felt
                         confident in their work from start to finish, knowing our equipment was safe and compliant."</p>
                     <div class="flex items-center">
@@ -557,7 +564,7 @@
             <div class="text-center mb-16 fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">Reach out to us for a free consultation or to
-                    schedule an appointment with our electrical experts.</p>
+                    schedule an appointment with our Testing & Tagging experts.</p>
             </div>
             <div class="flex flex-col lg:flex-row gap-12">
                 <div class="lg:w-1/2 fade-up">
@@ -584,17 +591,29 @@
                                 placeholder="Your phone number">
                         </div>
                         <div class="mb-6">
+                            <label for="service" class="block text-gray-700 font-medium mb-2">Service Plan *</label>
+                            <select id="service" name="service" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded focus:border-secondary focus:outline-none">
+                                <option value="" disabled selected>Select a service plan</option>
+                                <option value="Standard Testing & Tagging">Standard Testing & Tagging - One Time Service</option>
+                                <option value="Comprehensive Compliance">Comprehensive Compliance - Yearly</option>
+                                <!-- <option value="Emergency Callout">Emergency Callout</option> -->
+                                <!-- <option value="Preventative Maintenance">Preventative Maintenance</option> -->
+                                <!-- <option value="Custom Solution">Custom Solution</option> -->
+                            </select>
+                        </div>
+                        <div class="mb-6">
                             <label for="message" class="block text-gray-700 font-medium mb-2">Message *</label>
                             <textarea id="message" name="message" rows="4" required
                                 class="w-full px-4 py-3 border border-gray-300 rounded focus:border-secondary focus:outline-none"
-                                placeholder="Tell us about your electrical needs"></textarea>
+                                placeholder="Tell us about your Testing & Tagging needs"></textarea>
                             <div id="message-error" class="text-red-500 text-sm mt-1" style="display: none;"></div>
                         </div>
                         <div class="mb-6">
                             <label class="custom-checkbox">
                                 <input type="checkbox" name="consent" required>
                                 <span class="checkmark"></span>
-                                <span class="text-gray-700">I agree to receive communications from GG Electrical
+                                <span class="text-gray-700">I agree to receive communications from GG Testing & Tagging
                                     *</span>
                             </label>
                             <div id="consent-error" class="text-red-500 text-sm mt-1" style="display: none;"></div>
@@ -627,7 +646,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-gray-900 mb-1">Email</h4>
-                                    <p class="text-gray-600">info@ggelectricians.com</p>
+                                    <p class="text-gray-600">gary@ggtestingandtagging.com.au</p>
                                     <!-- <p class="text-gray-600">service@ggelectrical.com</p> -->
                                 </div>
                             </div>
@@ -659,10 +678,10 @@
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
                         <div class="flex items-center justify-center">
-                            <img class=logo src="/photos/GGLOGO2.jpg" alt="LOGO">
+                            <img class=logo src="photos/GGT&TLOGO2.jpeg" alt="LOGO">
                         </div>
                     </div>
-                    <p class="text-gray-300 mb-6">Professional electrical services, Licensed, insured, and commited to
+                    <p class="text-gray-300 mb-6">Professional Testing & Tagging services, Licensed, insured, and commited to
                         safety and quality.</p>
                     <div class="flex space-x-4">
                         <a href="#"
@@ -714,7 +733,7 @@
                 </div>
             </div>
             <div class="pt-8 border-t border-gray-700 text-center text-gray-400">
-                <p>&copy; 2025 GG Electrical. All rights reserved. </p>
+                <p>&copy; 2025 GG Testing & Tagging. All rights reserved. </p>
             </div>
         </div>
     </footer>
